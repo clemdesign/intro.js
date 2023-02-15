@@ -14,10 +14,13 @@ export default function cloneObject(object) {
   const temp = {};
   for (const key in object) {
     if (
-      typeof window.jQuery !== "undefined" &&
-      object[key] instanceof window.jQuery
+      (typeof window.jQuery !== "undefined" &&
+      object[key] instanceof window.jQuery) ||
+      key === "scrollElRef"
     ) {
       temp[key] = object[key];
+    } else if (key === "window") {
+      temp[key] = window;
     } else {
       temp[key] = cloneObject(object[key]);
     }

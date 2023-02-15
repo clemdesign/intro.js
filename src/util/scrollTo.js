@@ -29,8 +29,12 @@ export default function scrollTo(scrollTo, { element }, tooltipLayer) {
     // I have changed the scroll option and now it scrolls the window to
     // the center of the target element or tooltip.
 
+    const scrollEl = this._introItems[this._currentStep].scrollElRef || this._options.scrollElRef || window;
+
+    console.log(scrollEl);
+
     if (top < 0 || element.clientHeight > winHeight) {
-      window.scrollBy(
+      scrollEl.scrollBy(
         0,
         rect.top -
           (winHeight / 2 - rect.height / 2) -
@@ -39,7 +43,7 @@ export default function scrollTo(scrollTo, { element }, tooltipLayer) {
 
       //Scroll down
     } else {
-      window.scrollBy(
+      scrollEl.scrollBy(
         0,
         rect.top -
           (winHeight / 2 - rect.height / 2) +

@@ -81,6 +81,10 @@ function IntroJs(obj) {
      * Options are: 'element' or 'tooltip'
      */
     scrollTo: "element",
+    /**
+     * Reference Element to manage scroll
+     */
+    scrollElRef: null,
     /* Padding to add after scrolling when element is not in the viewport (in pixels) */
     scrollPadding: 30,
     /* Set the overlay opacity */
