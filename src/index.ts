@@ -39,6 +39,7 @@ class IntroJs {
   public _introExitCallback: Function;
   public _introSkipCallback: Function;
   public _introBeforeExitCallback: Function;
+  public _dontShowAgain: boolean;
 
   public constructor(targetElement: HTMLElement) {
     this._targetElement = targetElement;
@@ -107,6 +108,8 @@ class IntroJs {
       /* To display the "Don't show again" checkbox in the tour */
       dontShowAgain: false,
       dontShowAgainLabel: "Don't show this again",
+      /* To manage automatically the "Don't show again" checkbox. Otherwise, "Don't show again" result can be reached by isDontShowAgain(). */
+      dontShowAgainAutoManage: true,
       /* "Don't show again" cookie name and expiry (in days) */
       dontShowAgainCookie: "introjs-dontShowAgain",
       dontShowAgainCookieDays: 365,
@@ -211,8 +214,15 @@ class IntroJs {
   }
 
   setDontShowAgain(dontShowAgain: boolean) {
-    setDontShowAgain.call(this, dontShowAgain);
+    if (this._options.dontShowAgainAutoManage) {
+      setDontShowAgain.call(this, dontShowAgain);
+    }
+    this._dontShowAgain = dontShowAgain;
     return this;
+  }
+
+  isDontShowAgain() {
+    return this._dontShowAgain;
   }
 
   onbeforechange(providedCallback: Function) {
