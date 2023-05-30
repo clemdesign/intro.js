@@ -175,29 +175,30 @@ tr.introjs-showElement {
   padding: 20px;
 }
 
-.introjs-dontShowAgain {
+.introjs-dontShowAgain,
+.introjs-dontShowAgainAll {
   padding-left: 20px;
   padding-right: 20px;
-}
 
-.introjs-dontShowAgain input {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 2px;
-  display: inline;
-  width: 10px;
-  height: 10px;
-}
+  input {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2px;
+    display: inline;
+    width: 10px;
+    height: 10px;
+  }
 
-.introjs-dontShowAgain label {
-  font-size: 14px;
-  display: inline-block;
-  font-weight: normal;
-  margin: 0 0 0 5px;
-  padding: 0;
-  background-color: $white;
-  color: $black600;
-  user-select: none;
+  label {
+    font-size: 14px;
+    display: inline-block;
+    font-weight: normal;
+    margin: 0 0 0 5px;
+    padding: 0;
+    background-color: $white;
+    color: $black600;
+    user-select: none;
+  }
 }
 
 .introjs-tooltip-title {

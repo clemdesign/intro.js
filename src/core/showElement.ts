@@ -379,6 +379,30 @@ export default async function _showElement(targetElement: Step) {
       tooltipLayer.appendChild(dontShowAgainWrapper);
     }
 
+    // "Do not show again" checkbox
+    if (this._options.dontShowAgainAll) {
+      const dontShowAgainAllWrapper = createElement("div", {
+        className: "introjs-dontShowAgainAll",
+      });
+      const dontShowAgainAllCheckbox = createElement("input", {
+        type: "checkbox",
+        id: "introjs-dontShowAgainAll",
+        name: "introjs-dontShowAgainAll",
+        className: this._options.dontShowAgainAllInputClass || "",
+      });
+      dontShowAgainAllCheckbox.onchange = (e) => {
+        this.setDontShowAgainAll((<HTMLInputElement>e.target).checked);
+      };
+      const dontShowAgainAllCheckboxLabel = createElement("label", {
+        htmlFor: "introjs-dontShowAgainAll",
+      });
+      dontShowAgainAllCheckboxLabel.innerText = this._options.dontShowAgainAllLabel;
+      dontShowAgainAllWrapper.appendChild(dontShowAgainAllCheckbox);
+      dontShowAgainAllWrapper.appendChild(dontShowAgainAllCheckboxLabel);
+
+      tooltipLayer.appendChild(dontShowAgainAllWrapper);
+    }
+
     tooltipLayer.appendChild(_createBullets.call(this, targetElement));
     tooltipLayer.appendChild(_createProgressBar.call(this));
 
