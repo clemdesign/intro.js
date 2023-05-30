@@ -71,6 +71,9 @@ export default async function exitIntro(
   if (this._introExitCallback !== undefined) {
     await this._introExitCallback.call(this);
   }
+  if (this._options.exitCallback !== undefined) {
+    await this._options.exitCallback(this);
+  }
 
   //set the step to zero
   this._currentStep = undefined;

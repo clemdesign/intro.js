@@ -28,6 +28,14 @@ export default function getOffset(
     height: x.height,
   };
 
+  /*
+  console.log('element', element.className);
+  console.log('relativeEl', relativeEl.className, relativeEl.tagName.toLowerCase());
+  // console.log('x.left - xr.left', x.left - xr.left, 'x.left', x.left, 'x.left + scrollLeft', x.left + scrollLeft);
+  console.log('element', x);
+  console.log('relativeEl', xr);
+   */
+
   if (
     (relativeEl.tagName.toLowerCase() !== "body" &&
       relativeElPosition === "relative") ||

@@ -12,5 +12,5 @@ export default function scrollParentToElement(targetElement: HTMLElement) {
 
   if (scrollEl === document.body) return;
 
-  parent.scrollTop = targetElement.offsetTop - parent.offsetTop;
+  scrollEl.scrollTop = targetElement.offsetTop - scrollEl.offsetTop;
 }

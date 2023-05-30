@@ -3,8 +3,8 @@ import stamp from "./util/stamp";
 import exitIntro from "./core/exitIntro";
 import refresh from "./core/refresh";
 import introForElement from "./core/introForElement";
-import { getDontShowAgain, setDontShowAgain } from "./core/dontShowAgain";
-import { version } from "../package.json";
+import {getDontShowAgain, setDontShowAgain} from "./core/dontShowAgain";
+import {version} from "../package.json";
 import {
   populateHints,
   hideHint,
@@ -73,6 +73,8 @@ class IntroJs {
       exitOnEsc: true,
       /* Close introduction when clicking on overlay layer? */
       exitOnOverlayClick: true,
+      /* Callback when exit introJs */
+      exitCallback: undefined,
       /* Display the pagination detail */
       showStepNumbers: false,
       /* Pagination "of" label */
@@ -110,6 +112,8 @@ class IntroJs {
       dontShowAgainLabel: "Don't show this again",
       /* To manage automatically the "Don't show again" checkbox. Otherwise, "Don't show again" result can be reached by isDontShowAgain(). */
       dontShowAgainAutoManage: true,
+      /* "Don't show again" input class */
+      dontShowAgainInputClass: null,
       /* "Don't show again" cookie name and expiry (in days) */
       dontShowAgainCookie: "introjs-dontShowAgain",
       dontShowAgainCookieDays: 365,

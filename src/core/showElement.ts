@@ -364,6 +364,7 @@ export default async function _showElement(targetElement: Step) {
         type: "checkbox",
         id: "introjs-dontShowAgain",
         name: "introjs-dontShowAgain",
+        className: this._options.dontShowAgainInputClass || "",
       });
       dontShowAgainCheckbox.onchange = (e) => {
         this.setDontShowAgain((<HTMLInputElement>e.target).checked);
